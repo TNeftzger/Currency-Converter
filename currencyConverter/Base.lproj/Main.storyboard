@@ -1,24 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="currencyConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userGuides>
+                            <userLayoutGuide location="61" affinity="minY"/>
+                        </userGuides>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Convert To" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOO-9h-Y6M">
+                                <rect key="frame" x="20" y="149" width="374" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="IOf-Um-BWi">
+                                <rect key="frame" x="20" y="167.5" width="374" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="sEL-zb-dsR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gJa-SY-a1K"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4H-wf-Zma">
+                                <rect key="frame" x="20" y="383.5" width="374" height="44"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Press to Covert">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HgF-Sq-7LL"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount and Select Currency Below" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQ2-Xj-BsY">
+                                <rect key="frame" x="20" y="64" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converted Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-cr-tIF">
+                                <rect key="frame" x="20" y="427.5" width="374" height="30"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VMT-ip-0h1">
+                                <rect key="frame" x="20" y="98" width="374" height="32"/>
+                                <segments>
+                                    <segment title="NVD"/>
+                                    <segment title="GBP"/>
+                                    <segment title="USD"/>
+                                    <segment title="EUR"/>
+                                </segments>
+                                <connections>
+                                    <action selector="inputCurrency:" destination="BYZ-38-t0r" eventType="valueChanged" id="mDy-hO-7Bm"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.85337664417384829" green="0.85337664417384829" blue="0.85337664417384829" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EQ2-Xj-BsY" secondAttribute="trailing" constant="20" id="1mr-gO-Ve2"/>
+                            <constraint firstItem="Nho-cr-tIF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3f1-zl-D3R"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nho-cr-tIF" secondAttribute="bottom" constant="404.5" id="BEX-nb-vvy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q4H-wf-Zma" secondAttribute="trailing" constant="20" id="CU7-9g-9Qh"/>
+                            <constraint firstItem="IOf-Um-BWi" firstAttribute="top" secondItem="vOO-9h-Y6M" secondAttribute="bottom" id="D34-35-AUp"/>
+                            <constraint firstItem="IOf-Um-BWi" firstAttribute="top" secondItem="vOO-9h-Y6M" secondAttribute="bottom" id="E2K-Wn-hoP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IOf-Um-BWi" secondAttribute="trailing" constant="20" id="EvR-Ut-43P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vOO-9h-Y6M" secondAttribute="trailing" constant="20" id="HMe-3y-fa2"/>
+                            <constraint firstItem="VMT-ip-0h1" firstAttribute="top" secondItem="EQ2-Xj-BsY" secondAttribute="bottom" id="Hqx-NY-Xgz"/>
+                            <constraint firstItem="vOO-9h-Y6M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MCX-WQ-hk7"/>
+                            <constraint firstItem="EQ2-Xj-BsY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="P6p-cA-2Jr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nho-cr-tIF" secondAttribute="trailing" constant="20" id="PzS-Sg-4E6"/>
+                            <constraint firstItem="Nho-cr-tIF" firstAttribute="top" secondItem="Q4H-wf-Zma" secondAttribute="bottom" id="S8e-4e-kHM"/>
+                            <constraint firstItem="Q4H-wf-Zma" firstAttribute="top" secondItem="IOf-Um-BWi" secondAttribute="bottom" id="YV9-Nr-gDg"/>
+                            <constraint firstItem="VMT-ip-0h1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cHe-Qb-iz2"/>
+                            <constraint firstItem="VMT-ip-0h1" firstAttribute="top" secondItem="EQ2-Xj-BsY" secondAttribute="bottom" id="gbs-le-x7O"/>
+                            <constraint firstItem="Q4H-wf-Zma" firstAttribute="top" secondItem="IOf-Um-BWi" secondAttribute="bottom" id="hSt-bN-TmB"/>
+                            <constraint firstItem="IOf-Um-BWi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jdy-Q0-QsW"/>
+                            <constraint firstItem="EQ2-Xj-BsY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mTp-CR-pxH"/>
+                            <constraint firstItem="vOO-9h-Y6M" firstAttribute="top" secondItem="VMT-ip-0h1" secondAttribute="bottom" constant="20" id="rDI-VJ-aTP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VMT-ip-0h1" secondAttribute="trailing" constant="20" id="rGa-UT-dbX"/>
+                            <constraint firstItem="Nho-cr-tIF" firstAttribute="top" secondItem="Q4H-wf-Zma" secondAttribute="bottom" id="uXn-fg-DIP"/>
+                            <constraint firstItem="Q4H-wf-Zma" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yDU-OI-p8H"/>
+                            <constraint firstItem="vOO-9h-Y6M" firstAttribute="top" secondItem="VMT-ip-0h1" secondAttribute="bottom" constant="20" id="z8T-cU-aZu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currencyInput" destination="VMT-ip-0h1" id="tyg-JM-ViP"/>
+                        <outlet property="input" destination="EQ2-Xj-BsY" id="T56-9o-WXK"/>
+                        <outlet property="output" destination="Nho-cr-tIF" id="w6w-Sb-fG2"/>
+                        <outlet property="pickerView" destination="IOf-Um-BWi" id="Vc3-TM-YFz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

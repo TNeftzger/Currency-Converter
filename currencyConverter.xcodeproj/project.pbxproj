@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		14E5018E276B93CD00BAE556 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E5018C276B93CD00BAE556 /* Main.storyboard */; };
 		14E50190276B93D100BAE556 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E5018F276B93D100BAE556 /* Assets.xcassets */; };
 		14E50193276B93D100BAE556 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E50191276B93D100BAE556 /* LaunchScreen.storyboard */; };
+		936F903A27777F4B00575507 /* SailthruMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 936F903927777F4B00575507 /* SailthruMobile */; };
+		936F903C27777F4B00575507 /* SailthruMobileExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 936F903B27777F4B00575507 /* SailthruMobileExtension */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				936F903C27777F4B00575507 /* SailthruMobileExtension in Frameworks */,
+				936F903A27777F4B00575507 /* SailthruMobile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +84,10 @@
 			dependencies = (
 			);
 			name = currencyConverter;
+			packageProductDependencies = (
+				936F903927777F4B00575507 /* SailthruMobile */,
+				936F903B27777F4B00575507 /* SailthruMobileExtension */,
+			);
 			productName = currencyConverter;
 			productReference = 14E50185276B93CD00BAE556 /* currencyConverter.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 14E5017C276B93CD00BAE556;
+			packageReferences = (
+				936F903827777F4B00575507 /* XCRemoteSwiftPackageReference "carnival-ios-sdk" */,
+			);
 			productRefGroup = 14E50186276B93CD00BAE556 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -283,6 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UD4VWW2LUF;
 				INFOPLIST_FILE = currencyConverter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,7 +311,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = currencyConverter/currencyConverterRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UD4VWW2LUF;
 				INFOPLIST_FILE = currencyConverter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,6 +322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TNeftzger.currencyConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,6 +350,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		936F903827777F4B00575507 /* XCRemoteSwiftPackageReference "carnival-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carnivalmobile/carnival-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		936F903927777F4B00575507 /* SailthruMobile */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 936F903827777F4B00575507 /* XCRemoteSwiftPackageReference "carnival-ios-sdk" */;
+			productName = SailthruMobile;
+		};
+		936F903B27777F4B00575507 /* SailthruMobileExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 936F903827777F4B00575507 /* XCRemoteSwiftPackageReference "carnival-ios-sdk" */;
+			productName = SailthruMobileExtension;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 14E5017D276B93CD00BAE556 /* Project object */;
 }

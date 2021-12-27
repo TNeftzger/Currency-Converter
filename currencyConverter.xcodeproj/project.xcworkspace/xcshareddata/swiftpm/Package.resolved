@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SailthruMobile",
+        "repositoryURL": "https://github.com/carnivalmobile/carnival-ios-sdk",
+        "state": {
+          "branch": "master",
+          "revision": "042c3bb28ac74105ece09835409b91a67006ddb4",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
