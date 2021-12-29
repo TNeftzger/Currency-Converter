@@ -15,7 +15,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var myValues:[Double] = []
     var activeCurrency:Double = 0;
     var selectedCurrency:Double = 0;
-    
     var attributes = STMAttributes()
 
 
@@ -75,6 +74,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             sailthruMobile.setAttributes(attributes) { error in
                 print("setAttributes returned with possible error: \(String(describing: error))")
             }
+            
         }
         
     }
@@ -120,7 +120,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         //Getting Data from fixer.io and loading into dictionary
-        let url = URL(string: "http://data.fixer.io/api/latest?access_key=cc88b6d0583a4e62b00039a12165e74d&symbols=EUR,GBP,NZD,USD")
+        let url = URL(string: "http://data.fixer.io/api/latest?access_key=a32ef4b8e92182c2cef9b225f00a59cb&symbols=EUR,GBP,NZD,USD")
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             
@@ -157,7 +157,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         task.resume()
     }
-    
     
 }
 
